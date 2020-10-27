@@ -1,0 +1,26 @@
+//Define a word as a sequence of consecutive English letters. 
+//Find the longest word from the given string.
+
+////////////////////////////////////////////////////////////////
+///////////////////// best solution ////////////////////////////
+////////////////////////////////////////////////////////////////
+
+const longestWord = text =>
+  text.match(/[a-z]+/ig).sort((a, b) => b.length - a.length)[0];
+
+////////////////////////////////////////////////////////////////
+///////////////////// first attempt ////////////////////////////
+////////////////////////////////////////////////////////////////
+
+function longestWord(text) {
+  let arr = text.match(/[a-z]+/gi);
+  console.log('arr', arr);
+  let longest = '';
+  for (let i = 0; i < arr.length; i++) {
+      if (arr[i].length > longest.length) {
+          longest = arr[i];
+      }
+  }
+  console.log('longest', longest);
+  return longest;
+}
