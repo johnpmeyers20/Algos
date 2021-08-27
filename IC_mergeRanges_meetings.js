@@ -2,10 +2,10 @@ function mergeRanges(meetings) {
 
   // Merge meetings ranges
   // Sort meetings so that we can be sure that we're starting with the first and analyzing sequentially
-    // BigO 
-      // Javascript uses QuickSort
-      // Time - best / average: O(n log(n)), worst: O(n ^ 2)
-      // Space - O(log(n))
+  // BigO 
+  // Javascript uses QuickSort
+  // Time - best / average: O(n log(n))
+  // Space - O(log(n))
   meetings.sort((first, second) => first.startTime - second.startTime);
   // Cycle through sorted meeting times
   for (let i = 0; i < meetings.length - 1;) {
@@ -15,10 +15,10 @@ function mergeRanges(meetings) {
       if (meetings[i].endTime < meetings[i + 1].endTime) {
         //set the first meeting's endTime to that of the second
         //this is protection against the meeting contains other meeting edgecase 
-        meetings[i].endTime = meetings[i+1].endTime;
+        meetings[i].endTime = meetings[i + 1].endTime;
       }
       // all cases, we need to remove the second object to condense our arr
-      meetings.splice(i+1,1);
+      meetings.splice(i + 1, 1);
     }
     // if the second object was removed, we need to keep i at 0 for the next iteration in 
     // order to compare the modified first object with the new second. Otherwise, we can 
